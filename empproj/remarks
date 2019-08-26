@@ -1,0 +1,48 @@
+
+
+	Every app required following changes..
+		django-admin startproject projectName
+		cd projectName
+		manage.py startapp appname
+
+
+		open Pycharm and import project
+		open projectName folder and settings.py
+			-- check following changes..
+					--add app name - inside installed_apps
+					--change in tempaltes -- 'DIRS': [BASE_DIR+r'\templates'],
+					--add templates directory inside your appName at migration folder level
+					--make db change..
+
+						remove sqlite db changes and place following..
+					 make necessary changes as per your db..port/username/password
+
+	DATABASES = {
+				'default': {
+					'ENGINE': 'django.db.backends.mysql',
+					'NAME': 'jangodb',
+					'USER':'admin',
+					'PASSWORD':'admin123',
+					'HOST':'localhost',
+					'PORT':'3306'
+				}
+	}
+
+
+					-- __init__ -- project name madhe..not inside app wala..
+
+			add following changes...reason..we have installed pymysql inside virtual env..
+				and wants to use same with Django..django supports for pyMySQLDB..
+				so we are saying use pymysql as pyMySQLDB -- required changes will be taken
+				by django..
+
+					import pymysql
+					pymysql.install_as_MySQLdb()
+
+
+
+
+
+{{ form.as_table }} will render them as table cells wrapped in <tr> tags
+{{ form.as_p }} will render them wrapped in <p> tags
+{{ form.as_ul }} will render them wrapped in <li> tags

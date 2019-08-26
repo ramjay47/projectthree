@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emp Registration</title>
+</head>
+<body>
+
+Welcome to EmpInfomation Page...!
+
+<form action="http://localhost:8000/saveemp/" method="post">
+    {% csrf_token %}
+    {{ eform.as_ul }}
+    <input type="submit" value="Submit">
+</form>
+
+
+<table>
+        <thead>
+        <td>Id</td>
+        <td>FirstName</td>
+        <td>LastName</td>
+        <td>Age</td>
+        <td>Salary</td>
+        <td>Address</td>
+        <td>Email</td>
+        <td>Action</td>
+        </thead>
+
+    {% for emp in emps %}
+
+    <tr>
+        <td>{{emp.id}}</td>
+        <td>{{emp.fname}}</td>
+        <td>{{emp.lname}}</td>
+        <td>{{emp.age}}</td>
+        <td>{{emp.fname}}</td>
+        <td>{{emp.salary}}</td>
+        <td>{{emp.address}}</td>
+        <td>{{emp.email}}</td>
+        <td>EDIT | DELETE</td>
+    </tr>
+
+    {% endfor %}
+</table>
+
+
+</body>
+</html>
